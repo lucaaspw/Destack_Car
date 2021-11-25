@@ -42,12 +42,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         lblData = new javax.swing.JLabel();
         lblUsuario = new javax.swing.JLabel();
         lblPerfil = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        lblbemvindo = new javax.swing.JLabel();
         menuPrincipal = new javax.swing.JMenuBar();
         menuCadastro = new javax.swing.JMenu();
-        menuCliente = new javax.swing.JMenuItem();
         menuUsuario = new javax.swing.JMenuItem();
-        menuClientes = new javax.swing.JMenu();
+        menuCliente = new javax.swing.JMenuItem();
         menuServico = new javax.swing.JMenuItem();
+        menuClientes = new javax.swing.JMenu();
+        menuUsuario1 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         menuRelatorio = new javax.swing.JMenu();
         menuOpcoes = new javax.swing.JMenu();
@@ -96,41 +99,47 @@ public class TelaPrincipal extends javax.swing.JFrame {
         getContentPane().add(desktop);
         desktop.setBounds(0, 0, 550, 480);
 
-        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/destakcar/icones/x.png"))); // NOI18N
+        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/destakcar/icones/Logo-completo-sem-borda.png"))); // NOI18N
         getContentPane().add(lblLogo);
-        lblLogo.setBounds(580, 270, 181, 160);
+        lblLogo.setBounds(570, 290, 210, 160);
 
         lblData.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblData.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblData.setText("Data");
         getContentPane().add(lblData);
-        lblData.setBounds(570, 120, 130, 40);
+        lblData.setBounds(650, 180, 130, 40);
 
         lblUsuario.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblUsuario.setText("Usuário");
         getContentPane().add(lblUsuario);
-        lblUsuario.setBounds(570, 60, 130, 40);
+        lblUsuario.setBounds(580, 80, 130, 40);
 
         lblPerfil.setText("Perfil");
         getContentPane().add(lblPerfil);
-        lblPerfil.setBounds(570, 100, 50, 14);
+        lblPerfil.setBounds(700, 90, 50, 14);
 
-        menuCadastro.setText("Cadatro");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Hoje é");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(580, 190, 90, 22);
+
+        lblbemvindo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        lblbemvindo.setText("Bem Vindo (a)");
+        getContentPane().add(lblbemvindo);
+        lblbemvindo.setBounds(600, 30, 140, 22);
+
+        menuCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/destakcar/icones/add.png"))); // NOI18N
+        menuCadastro.setText("Adicionar");
         menuCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuCadastroActionPerformed(evt);
             }
         });
 
-        menuCliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_DOWN_MASK));
-        menuCliente.setText("Cliente");
-        menuCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuClienteActionPerformed(evt);
-            }
-        });
-        menuCadastro.add(menuCliente);
-
         menuUsuario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        menuUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/destakcar/icones/user_add.png"))); // NOI18N
         menuUsuario.setText("Usuário");
         menuUsuario.setEnabled(false);
         menuUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -140,25 +149,52 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         menuCadastro.add(menuUsuario);
 
-        menuPrincipal.add(menuCadastro);
-
-        menuClientes.setText("Clientes");
+        menuCliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        menuCliente.setIcon(new javax.swing.ImageIcon("C:\\Users\\igor_\\Desktop\\Faculdade\\imagem projeto\\icons 1\\user_gray.png")); // NOI18N
+        menuCliente.setText("Cliente");
+        menuCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuClienteActionPerformed(evt);
+            }
+        });
+        menuCadastro.add(menuCliente);
 
         menuServico.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.ALT_DOWN_MASK));
-        menuServico.setText("Serviços");
-        menuClientes.add(menuServico);
+        menuServico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/destakcar/icones/folder_wrench.png"))); // NOI18N
+        menuServico.setText("Serviço");
+        menuCadastro.add(menuServico);
+
+        menuPrincipal.add(menuCadastro);
+
+        menuClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/destakcar/icones/user_suit.png"))); // NOI18N
+        menuClientes.setText("Clientes");
+
+        menuUsuario1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        menuUsuario1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/destakcar/icones/car.png"))); // NOI18N
+        menuUsuario1.setText("Veículos");
+        menuUsuario1.setEnabled(false);
+        menuUsuario1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuUsuario1ActionPerformed(evt);
+            }
+        });
+        menuClientes.add(menuUsuario1);
 
         menuPrincipal.add(menuClientes);
 
+        jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/destakcar/icones/wrench.png"))); // NOI18N
         jMenu5.setText("Serviços");
         menuPrincipal.add(jMenu5);
 
+        menuRelatorio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/destakcar/icones/report.png"))); // NOI18N
         menuRelatorio.setText("Relatórios");
         menuPrincipal.add(menuRelatorio);
 
+        menuOpcoes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/destakcar/icones/cog.png"))); // NOI18N
         menuOpcoes.setText("Opções");
 
         menuSair.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        menuSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/destakcar/icones/disconnect.png"))); // NOI18N
         menuSair.setText("Sair");
         menuSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -186,6 +222,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void menuClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuClienteActionPerformed
         // TODO add your handling code here:
+         // Abrindo o form TelaUsuario dentro do dedsktop pane
+        TelaCliente cliente= new TelaCliente();
+        cliente.setVisible(true);
+        desktop.add(cliente);
     }//GEN-LAST:event_menuClienteActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
@@ -198,6 +238,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void menuCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCadastroActionPerformed
         // TODO add your handling code here:
+       
     }//GEN-LAST:event_menuCadastroActionPerformed
 
     private void menuUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuUsuarioActionPerformed
@@ -207,6 +248,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         usuario.setVisible(true);
         desktop.add(usuario);
     }//GEN-LAST:event_menuUsuarioActionPerformed
+
+    private void menuUsuario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuUsuario1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuUsuario1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -247,6 +292,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JDesktopPane desktop;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JFrame jFrame1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -255,6 +301,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel lblLogo;
     public static javax.swing.JLabel lblPerfil;
     public static javax.swing.JLabel lblUsuario;
+    private javax.swing.JLabel lblbemvindo;
     private javax.swing.JMenu menuCadastro;
     private javax.swing.JMenuItem menuCliente;
     private javax.swing.JMenu menuClientes;
@@ -264,5 +311,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuSair;
     private javax.swing.JMenuItem menuServico;
     public static javax.swing.JMenuItem menuUsuario;
+    public static javax.swing.JMenuItem menuUsuario1;
     // End of variables declaration//GEN-END:variables
 }

@@ -112,6 +112,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
         btnAdicionar = new javax.swing.JButton();
         btnConsultar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
+        lbliconeusuario = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
@@ -189,22 +190,24 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
 
         btnEditar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnEditar.setForeground(new java.awt.Color(0, 102, 255));
+        btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/destakcar/icones/user_edit.png"))); // NOI18N
         btnEditar.setText("Editar");
         btnEditar.setToolTipText("Editar");
         btnEditar.setBorder(null);
         btnEditar.setBorderPainted(false);
-        btnEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnEditar.setPreferredSize(new java.awt.Dimension(20, 40));
         getContentPane().add(btnEditar);
         btnEditar.setBounds(280, 370, 100, 30);
 
         btnAdicionar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnAdicionar.setForeground(new java.awt.Color(0, 102, 255));
-        btnAdicionar.setText("Criar");
+        btnAdicionar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/destakcar/icones/accept.png"))); // NOI18N
+        btnAdicionar.setText("Confirmar");
         btnAdicionar.setToolTipText("Adicionar");
         btnAdicionar.setBorder(null);
         btnAdicionar.setBorderPainted(false);
-        btnAdicionar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAdicionar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnAdicionar.setPreferredSize(new java.awt.Dimension(20, 40));
         btnAdicionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -216,11 +219,12 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
 
         btnConsultar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnConsultar.setForeground(new java.awt.Color(0, 102, 255));
+        btnConsultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/destakcar/icones/magnifier.png"))); // NOI18N
         btnConsultar.setText("Buscar");
         btnConsultar.setToolTipText("Consultar");
         btnConsultar.setBorder(null);
         btnConsultar.setBorderPainted(false);
-        btnConsultar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnConsultar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnConsultar.setPreferredSize(new java.awt.Dimension(20, 40));
         btnConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -232,11 +236,12 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
 
         btnExcluir.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnExcluir.setForeground(new java.awt.Color(0, 102, 255));
+        btnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/destakcar/icones/user_delete.png"))); // NOI18N
         btnExcluir.setText("Deletar");
         btnExcluir.setToolTipText("Excluir");
         btnExcluir.setBorder(null);
         btnExcluir.setBorderPainted(false);
-        btnExcluir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnExcluir.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnExcluir.setPreferredSize(new java.awt.Dimension(20, 40));
         btnExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -245,6 +250,10 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
         });
         getContentPane().add(btnExcluir);
         btnExcluir.setBounds(390, 370, 100, 30);
+
+        lbliconeusuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/destakcar/icones/icone-usuario.png"))); // NOI18N
+        getContentPane().add(lbliconeusuario);
+        lbliconeusuario.setBounds(200, 20, 160, 170);
 
         setBounds(0, 0, 550, 484);
     }// </editor-fold>//GEN-END:initComponents
@@ -280,6 +289,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel lblPerfil;
     private javax.swing.JLabel lblSenha;
+    private javax.swing.JLabel lbliconeusuario;
     private javax.swing.JTextField txtUserId;
     private javax.swing.JTextField txtUserLogin;
     private javax.swing.JTextField txtUserNome;

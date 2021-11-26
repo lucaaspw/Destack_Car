@@ -172,7 +172,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         menuVeiculos.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.ALT_DOWN_MASK));
         menuVeiculos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/destakcar/icones/car.png"))); // NOI18N
         menuVeiculos.setText("Veículos");
-        menuVeiculos.setEnabled(false);
         menuVeiculos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuVeiculosActionPerformed(evt);

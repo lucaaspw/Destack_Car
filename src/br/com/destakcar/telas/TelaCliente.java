@@ -28,31 +28,31 @@ public class TelaCliente extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtCleinteCidade = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        txtCleinteCep = new javax.swing.JFormattedTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtCleinteNome = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jFormattedTextField3 = new javax.swing.JFormattedTextField();
+        txtCleinteTel = new javax.swing.JFormattedTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        txtClienteId = new javax.swing.JTextField();
+        cboCleinteUf = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtClienteEmail = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        txtClienteNumero = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jFormattedTextField4 = new javax.swing.JFormattedTextField();
+        txtCleinteDNS = new javax.swing.JFormattedTextField();
         jLabel11 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
-        jFormattedTextField5 = new javax.swing.JFormattedTextField();
+        txtClienteCompl = new javax.swing.JTextField();
+        txtCleinteCPF = new javax.swing.JFormattedTextField();
         jLabel12 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        txtCleinteBairro = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        txtCleinteEndereco = new javax.swing.JTextField();
         btnEditarCli = new javax.swing.JButton();
         btnAdicionarCli = new javax.swing.JButton();
         btnConsultarCli = new javax.swing.JButton();
@@ -79,14 +79,14 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         getContentPane().add(jLabel1);
         jLabel1.setBounds(20, 140, 20, 17);
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtCleinteCidade.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtCleinteCidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtCleinteCidadeActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(360, 290, 170, 30);
+        getContentPane().add(txtCleinteCidade);
+        txtCleinteCidade.setBounds(360, 290, 170, 30);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("UF");
@@ -99,17 +99,17 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         jLabel3.setBounds(260, 340, 50, 17);
 
         try {
-            jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
+            txtCleinteCep.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFormattedTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtCleinteCep.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormattedTextField1ActionPerformed(evt);
+                txtCleinteCepActionPerformed(evt);
             }
         });
-        getContentPane().add(jFormattedTextField1);
-        jFormattedTextField1.setBounds(80, 290, 140, 30);
+        getContentPane().add(txtCleinteCep);
+        txtCleinteCep.setBounds(80, 290, 140, 30);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("Data Nasc.");
@@ -121,14 +121,14 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         getContentPane().add(jLabel5);
         jLabel5.setBounds(10, 180, 50, 17);
 
-        jTextField2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        txtCleinteNome.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtCleinteNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                txtCleinteNomeActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField2);
-        jTextField2.setBounds(80, 170, 450, 30);
+        getContentPane().add(txtCleinteNome);
+        txtCleinteNome.setBounds(80, 170, 450, 30);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setText("CPF");
@@ -136,64 +136,64 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         jLabel6.setBounds(350, 140, 30, 17);
 
         try {
-            jFormattedTextField3.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)  ##### - ####")));
+            txtCleinteTel.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)  ##### - ####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFormattedTextField3.addActionListener(new java.awt.event.ActionListener() {
+        txtCleinteTel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormattedTextField3ActionPerformed(evt);
+                txtCleinteTelActionPerformed(evt);
             }
         });
-        getContentPane().add(jFormattedTextField3);
-        jFormattedTextField3.setBounds(80, 330, 160, 30);
+        getContentPane().add(txtCleinteTel);
+        txtCleinteTel.setBounds(80, 330, 160, 30);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setText("CEP");
         getContentPane().add(jLabel7);
         jLabel7.setBounds(10, 300, 30, 17);
 
-        jTextField4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        txtClienteId.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtClienteId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                txtClienteIdActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField4);
-        jTextField4.setBounds(80, 130, 70, 30);
+        getContentPane().add(txtClienteId);
+        txtClienteId.setBounds(80, 130, 70, 30);
 
-        jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
-        getContentPane().add(jComboBox1);
-        jComboBox1.setBounds(250, 290, 50, 30);
+        cboCleinteUf.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        cboCleinteUf.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
+        getContentPane().add(cboCleinteUf);
+        cboCleinteUf.setBounds(250, 290, 50, 30);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setText("Compl");
         getContentPane().add(jLabel8);
         jLabel8.setBounds(10, 260, 50, 17);
 
-        jTextField3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        txtClienteEmail.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtClienteEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                txtClienteEmailActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField3);
-        jTextField3.setBounds(310, 330, 220, 30);
+        getContentPane().add(txtClienteEmail);
+        txtClienteEmail.setBounds(310, 330, 220, 30);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setText("Numero");
         getContentPane().add(jLabel9);
         jLabel9.setBounds(330, 220, 56, 17);
 
-        jTextField5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        txtClienteNumero.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtClienteNumero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                txtClienteNumeroActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField5);
-        jTextField5.setBounds(400, 210, 130, 30);
+        getContentPane().add(txtClienteNumero);
+        txtClienteNumero.setBounds(400, 210, 130, 30);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel10.setText("Cidade");
@@ -201,72 +201,72 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         jLabel10.setBounds(310, 300, 50, 17);
 
         try {
-            jFormattedTextField4.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+            txtCleinteDNS.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFormattedTextField4.addActionListener(new java.awt.event.ActionListener() {
+        txtCleinteDNS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormattedTextField4ActionPerformed(evt);
+                txtCleinteDNSActionPerformed(evt);
             }
         });
-        getContentPane().add(jFormattedTextField4);
-        jFormattedTextField4.setBounds(240, 130, 100, 30);
+        getContentPane().add(txtCleinteDNS);
+        txtCleinteDNS.setBounds(240, 130, 100, 30);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setText("Telefone");
         getContentPane().add(jLabel11);
         jLabel11.setBounds(10, 340, 59, 17);
 
-        jTextField6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+        txtClienteCompl.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtClienteCompl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
+                txtClienteComplActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField6);
-        jTextField6.setBounds(80, 250, 240, 30);
+        getContentPane().add(txtClienteCompl);
+        txtClienteCompl.setBounds(80, 250, 240, 30);
 
         try {
-            jFormattedTextField5.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+            txtCleinteCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        jFormattedTextField5.addActionListener(new java.awt.event.ActionListener() {
+        txtCleinteCPF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormattedTextField5ActionPerformed(evt);
+                txtCleinteCPFActionPerformed(evt);
             }
         });
-        getContentPane().add(jFormattedTextField5);
-        jFormattedTextField5.setBounds(390, 130, 140, 30);
+        getContentPane().add(txtCleinteCPF);
+        txtCleinteCPF.setBounds(390, 130, 140, 30);
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel12.setText("Bairro");
         getContentPane().add(jLabel12);
         jLabel12.setBounds(350, 260, 50, 17);
 
-        jTextField7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+        txtCleinteBairro.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtCleinteBairro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
+                txtCleinteBairroActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField7);
-        jTextField7.setBounds(400, 250, 130, 30);
+        getContentPane().add(txtCleinteBairro);
+        txtCleinteBairro.setBounds(400, 250, 130, 30);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel13.setText("Endereço");
         getContentPane().add(jLabel13);
         jLabel13.setBounds(10, 220, 70, 17);
 
-        jTextField8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+        txtCleinteEndereco.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtCleinteEndereco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField8ActionPerformed(evt);
+                txtCleinteEnderecoActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField8);
-        jTextField8.setBounds(80, 210, 240, 30);
+        getContentPane().add(txtCleinteEndereco);
+        txtCleinteEndereco.setBounds(80, 210, 240, 30);
 
         btnEditarCli.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnEditarCli.setForeground(new java.awt.Color(0, 102, 255));
@@ -338,53 +338,53 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtCleinteCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCleinteCidadeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtCleinteCidadeActionPerformed
 
-    private void jFormattedTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField1ActionPerformed
+    private void txtCleinteCepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCleinteCepActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jFormattedTextField1ActionPerformed
+    }//GEN-LAST:event_txtCleinteCepActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void txtCleinteNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCleinteNomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_txtCleinteNomeActionPerformed
 
-    private void jFormattedTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField3ActionPerformed
+    private void txtCleinteTelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCleinteTelActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jFormattedTextField3ActionPerformed
+    }//GEN-LAST:event_txtCleinteTelActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void txtClienteIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtClienteIdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_txtClienteIdActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void txtClienteEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtClienteEmailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_txtClienteEmailActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void txtClienteNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtClienteNumeroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_txtClienteNumeroActionPerformed
 
-    private void jFormattedTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField4ActionPerformed
+    private void txtCleinteDNSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCleinteDNSActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jFormattedTextField4ActionPerformed
+    }//GEN-LAST:event_txtCleinteDNSActionPerformed
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+    private void txtClienteComplActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtClienteComplActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+    }//GEN-LAST:event_txtClienteComplActionPerformed
 
-    private void jFormattedTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField5ActionPerformed
+    private void txtCleinteCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCleinteCPFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jFormattedTextField5ActionPerformed
+    }//GEN-LAST:event_txtCleinteCPFActionPerformed
 
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+    private void txtCleinteBairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCleinteBairroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
+    }//GEN-LAST:event_txtCleinteBairroActionPerformed
 
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+    private void txtCleinteEnderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCleinteEnderecoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField8ActionPerformed
+    }//GEN-LAST:event_txtCleinteEnderecoActionPerformed
 
     private void btnAdicionarCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarCliActionPerformed
         // TODO add your handling code here:
@@ -406,11 +406,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnConsultarCli;
     private javax.swing.JButton btnEditarCli;
     private javax.swing.JButton btnExcluirCli;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
-    private javax.swing.JFormattedTextField jFormattedTextField3;
-    private javax.swing.JFormattedTextField jFormattedTextField4;
-    private javax.swing.JFormattedTextField jFormattedTextField5;
+    private javax.swing.JComboBox<String> cboCleinteUf;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -425,13 +421,17 @@ public class TelaCliente extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField txtCleinteBairro;
+    private javax.swing.JFormattedTextField txtCleinteCPF;
+    private javax.swing.JFormattedTextField txtCleinteCep;
+    private javax.swing.JTextField txtCleinteCidade;
+    private javax.swing.JFormattedTextField txtCleinteDNS;
+    private javax.swing.JTextField txtCleinteEndereco;
+    private javax.swing.JTextField txtCleinteNome;
+    private javax.swing.JFormattedTextField txtCleinteTel;
+    private javax.swing.JTextField txtClienteCompl;
+    private javax.swing.JTextField txtClienteEmail;
+    private javax.swing.JTextField txtClienteId;
+    private javax.swing.JTextField txtClienteNumero;
     // End of variables declaration//GEN-END:variables
 }

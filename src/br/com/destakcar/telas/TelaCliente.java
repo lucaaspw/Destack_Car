@@ -201,12 +201,12 @@ public class TelaCliente extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(txtClienteCep);
-        txtClienteCep.setBounds(380, 320, 150, 30);
+        txtClienteCep.setBounds(430, 320, 100, 30);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("Data Nasc.");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(310, 160, 80, 30);
+        jLabel4.setBounds(340, 160, 80, 30);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setText("Nome");
@@ -243,7 +243,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setText("CEP");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(340, 320, 30, 30);
+        jLabel7.setBounds(380, 320, 30, 30);
 
         txtClienteEmail.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtClienteEmail.addActionListener(new java.awt.event.ActionListener() {
@@ -284,7 +284,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(txtClienteDNS);
-        txtClienteDNS.setBounds(390, 160, 140, 30);
+        txtClienteDNS.setBounds(430, 160, 100, 30);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setText("Telefone");
@@ -302,7 +302,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(txtClienteCPF);
-        txtClienteCPF.setBounds(90, 160, 190, 30);
+        txtClienteCPF.setBounds(90, 160, 110, 30);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel13.setText("Endereço");
@@ -333,7 +333,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnAdicionarCli);
-        btnAdicionarCli.setBounds(100, 380, 100, 30);
+        btnAdicionarCli.setBounds(180, 390, 100, 30);
 
         btnConsultarCli.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnConsultarCli.setForeground(new java.awt.Color(0, 102, 255));
@@ -366,7 +366,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnExcluirCli);
-        btnExcluirCli.setBounds(380, 380, 100, 30);
+        btnExcluirCli.setBounds(300, 390, 100, 30);
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/destakcar/icones/icone-cliente.png"))); // NOI18N
         getContentPane().add(jLabel14);

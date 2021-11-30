@@ -5,6 +5,10 @@
  */
 package br.com.destakcar.telas;
 
+import java.sql.*;
+import br.com.destakcar.dal.ModuloConexao;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Igor Pierine Santos
@@ -12,10 +16,117 @@ package br.com.destakcar.telas;
 public class TelaCliente extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form TelaCliente
+     * Creates new form TelaUsuario
      */
+    Connection conexao = null;
+    PreparedStatement pst = null;
+    ResultSet rs = null;
+
     public TelaCliente() {
         initComponents();
+        conexao = ModuloConexao.conector();
+    }
+
+    @SuppressWarnings("empty-statement")
+    private void adicionar() {
+        String sql = "insert into tbcliente(cpfcli, dnscli, nomecli, enderecocli, numcli, phonecli, emailcli, cidadecli, cepcli) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        try {
+            pst = conexao.prepareStatement(sql);
+            pst.setString(1, txtClienteCPF.getText());
+            pst.setString(2, txtClienteDNS.getText());
+            pst.setString(3, txtClienteNome.getText());
+            pst.setString(4, txtClienteEndereco.getText());
+            pst.setString(5, txtClienteNumero.getText());
+            pst.setString(6, txtClienteTel.getText());
+            pst.setString(7, txtClienteEmail.getText());
+            pst.setString(8, txtClienteCidade.getText());
+            pst.setString(9, txtClienteCep.getText());
+
+            // Validando os campos
+            if (txtClienteCPF.getText().isEmpty() || txtClienteDNS.getText().isEmpty() || txtClienteNome.getText().isEmpty() || txtClienteEndereco.getText().isEmpty() || txtClienteNumero.getText().isEmpty() || txtClienteTel.getText().isEmpty() || txtClienteEmail.getText().isEmpty() || txtClienteCidade.getText().isEmpty() || txtClienteCep.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Preencha todos os campos");
+            } else {
+
+                int adicionado = pst.executeUpdate();
+                if (adicionado > 0) {
+                    JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso");
+                    // Limpando os campos
+                    txtClienteNome.setText(null);
+                    txtClienteEndereco.setText(null);
+                    txtClienteTel.setText(null);
+                    txtClienteCPF.setText(null);
+                    txtClienteEmail.setText(null);
+                    txtClienteNumero.setText(null);
+                    txtClienteCep.setText(null);
+                    txtClienteCidade.setText(null);
+                    txtClienteDNS.setText(null);
+                }
+            }
+        } catch (SQLException e) {
+            jOptionPane.showMessageDialog(null, e);
+        }
+    }
+
+    private void consultar() {
+        String sql = "select * from tbcliente where cpfcli=?";
+        try {
+            pst = conexao.prepareStatement(sql);
+            pst.setString(1, txtClienteCPF.getText());
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                txtClienteDNS.setText(rs.getString(3));
+                txtClienteNome.setText(rs.getString(4));
+                txtClienteEndereco.setText(rs.getString(5));
+                txtClienteNumero.setText(rs.getString(6));
+                txtClienteTel.setText(rs.getString(7));
+                txtClienteEmail.setText(rs.getString(8));
+                txtClienteCidade.setText(rs.getString(9));
+                txtClienteCep.setText(rs.getString(10));
+            } else {
+                JOptionPane.showMessageDialog(null, "Usuário não encontrado");
+                // Limpando os campos
+                txtClienteDNS.setText(null);
+                txtClienteNome.setText(null);
+                txtClienteEndereco.setText(null);
+                txtClienteNumero.setText(null);
+                txtClienteTel.setText(null);
+                txtClienteEmail.setText(null);
+                txtClienteCidade.setText(null);
+                txtClienteCep.setText(null);
+
+            }
+        } catch (SQLException e) {
+            jOptionPane.showMessageDialog(null, e);
+        }
+    }
+
+    private void excluir() {
+        // Metodo de exclusão de usuário
+        int confirma;
+        confirma = JOptionPane.showConfirmDialog(null, "Deseja mesmo exclui este usuário?", "Atenção", JOptionPane.YES_NO_OPTION);
+        if (confirma == JOptionPane.YES_OPTION) {
+            String sql = "delete from tbcliente where emailcli=?";
+            try {
+                pst = conexao.prepareStatement(sql);
+                pst.setString(1, txtClienteEmail.getText());
+                int apagado = pst.executeUpdate();
+                if (apagado > 0) {
+                    JOptionPane.showMessageDialog(null, "Usuário excluido com sucesso!");
+                    // Limpando os campos
+                    txtClienteDNS.setText(null);
+                    txtClienteNome.setText(null);
+                    txtClienteEndereco.setText(null);
+                    txtClienteNumero.setText(null);
+                    txtClienteTel.setText(null);
+                    txtClienteEmail.setText(null);
+                    txtClienteCidade.setText(null);
+                    txtClienteCep.setText(null);
+                }
+            } catch (SQLException e) {
+                jOptionPane.showMessageDialog(null, e);
+            }
+        }
+
     }
 
     /**
@@ -27,33 +138,24 @@ public class TelaCliente extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        txtCleinteCidade = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        txtClienteCidade = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txtCleinteCep = new javax.swing.JFormattedTextField();
+        txtClienteCep = new javax.swing.JFormattedTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txtCleinteNome = new javax.swing.JTextField();
+        txtClienteNome = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        txtCleinteTel = new javax.swing.JFormattedTextField();
+        txtClienteTel = new javax.swing.JFormattedTextField();
         jLabel7 = new javax.swing.JLabel();
-        txtClienteId = new javax.swing.JTextField();
-        cboCleinteUf = new javax.swing.JComboBox<>();
-        jLabel8 = new javax.swing.JLabel();
         txtClienteEmail = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         txtClienteNumero = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        txtCleinteDNS = new javax.swing.JFormattedTextField();
+        txtClienteDNS = new javax.swing.JFormattedTextField();
         jLabel11 = new javax.swing.JLabel();
-        txtClienteCompl = new javax.swing.JTextField();
-        txtCleinteCPF = new javax.swing.JFormattedTextField();
-        jLabel12 = new javax.swing.JLabel();
-        txtCleinteBairro = new javax.swing.JTextField();
+        txtClienteCPF = new javax.swing.JFormattedTextField();
         jLabel13 = new javax.swing.JLabel();
-        txtCleinteEndereco = new javax.swing.JTextField();
-        btnEditarCli = new javax.swing.JButton();
+        txtClienteEndereco = new javax.swing.JTextField();
         btnAdicionarCli = new javax.swing.JButton();
         btnConsultarCli = new javax.swing.JButton();
         btnExcluirCli = new javax.swing.JButton();
@@ -74,103 +176,74 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         }
         getContentPane().setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setText("ID");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(20, 140, 20, 17);
-
-        txtCleinteCidade.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txtCleinteCidade.addActionListener(new java.awt.event.ActionListener() {
+        txtClienteCidade.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtClienteCidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCleinteCidadeActionPerformed(evt);
+                txtClienteCidadeActionPerformed(evt);
             }
         });
-        getContentPane().add(txtCleinteCidade);
-        txtCleinteCidade.setBounds(360, 290, 170, 30);
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel2.setText("UF");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(230, 300, 20, 17);
+        getContentPane().add(txtClienteCidade);
+        txtClienteCidade.setBounds(90, 320, 220, 30);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("E-mail");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(260, 340, 50, 17);
+        jLabel3.setBounds(260, 280, 50, 30);
 
         try {
-            txtCleinteCep.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
+            txtClienteCep.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        txtCleinteCep.addActionListener(new java.awt.event.ActionListener() {
+        txtClienteCep.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCleinteCepActionPerformed(evt);
+                txtClienteCepActionPerformed(evt);
             }
         });
-        getContentPane().add(txtCleinteCep);
-        txtCleinteCep.setBounds(80, 290, 140, 30);
+        getContentPane().add(txtClienteCep);
+        txtClienteCep.setBounds(380, 320, 150, 30);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("Data Nasc.");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(160, 140, 80, 17);
+        jLabel4.setBounds(310, 160, 80, 30);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setText("Nome");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(10, 180, 50, 17);
+        jLabel5.setBounds(20, 200, 50, 30);
 
-        txtCleinteNome.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txtCleinteNome.addActionListener(new java.awt.event.ActionListener() {
+        txtClienteNome.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtClienteNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCleinteNomeActionPerformed(evt);
+                txtClienteNomeActionPerformed(evt);
             }
         });
-        getContentPane().add(txtCleinteNome);
-        txtCleinteNome.setBounds(80, 170, 450, 30);
+        getContentPane().add(txtClienteNome);
+        txtClienteNome.setBounds(90, 200, 440, 30);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setText("CPF");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(350, 140, 30, 17);
+        jLabel6.setBounds(50, 160, 30, 30);
 
         try {
-            txtCleinteTel.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)  ##### - ####")));
+            txtClienteTel.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)  ##### - ####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        txtCleinteTel.addActionListener(new java.awt.event.ActionListener() {
+        txtClienteTel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCleinteTelActionPerformed(evt);
+                txtClienteTelActionPerformed(evt);
             }
         });
-        getContentPane().add(txtCleinteTel);
-        txtCleinteTel.setBounds(80, 330, 160, 30);
+        getContentPane().add(txtClienteTel);
+        txtClienteTel.setBounds(90, 280, 150, 30);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setText("CEP");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(10, 300, 30, 17);
-
-        txtClienteId.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txtClienteId.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtClienteIdActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txtClienteId);
-        txtClienteId.setBounds(80, 130, 70, 30);
-
-        cboCleinteUf.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        cboCleinteUf.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
-        getContentPane().add(cboCleinteUf);
-        cboCleinteUf.setBounds(250, 290, 50, 30);
-
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel8.setText("Compl");
-        getContentPane().add(jLabel8);
-        jLabel8.setBounds(10, 260, 50, 17);
+        jLabel7.setBounds(340, 320, 30, 30);
 
         txtClienteEmail.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtClienteEmail.addActionListener(new java.awt.event.ActionListener() {
@@ -179,12 +252,12 @@ public class TelaCliente extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(txtClienteEmail);
-        txtClienteEmail.setBounds(310, 330, 220, 30);
+        txtClienteEmail.setBounds(310, 280, 220, 30);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setText("Numero");
         getContentPane().add(jLabel9);
-        jLabel9.setBounds(330, 220, 56, 17);
+        jLabel9.setBounds(370, 240, 56, 30);
 
         txtClienteNumero.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtClienteNumero.addActionListener(new java.awt.event.ActionListener() {
@@ -193,92 +266,57 @@ public class TelaCliente extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(txtClienteNumero);
-        txtClienteNumero.setBounds(400, 210, 130, 30);
+        txtClienteNumero.setBounds(430, 240, 100, 30);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel10.setText("Cidade");
         getContentPane().add(jLabel10);
-        jLabel10.setBounds(310, 300, 50, 17);
+        jLabel10.setBounds(30, 320, 50, 30);
 
         try {
-            txtCleinteDNS.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
+            txtClienteDNS.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        txtCleinteDNS.addActionListener(new java.awt.event.ActionListener() {
+        txtClienteDNS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCleinteDNSActionPerformed(evt);
+                txtClienteDNSActionPerformed(evt);
             }
         });
-        getContentPane().add(txtCleinteDNS);
-        txtCleinteDNS.setBounds(240, 130, 100, 30);
+        getContentPane().add(txtClienteDNS);
+        txtClienteDNS.setBounds(390, 160, 140, 30);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setText("Telefone");
         getContentPane().add(jLabel11);
-        jLabel11.setBounds(10, 340, 59, 17);
-
-        txtClienteCompl.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txtClienteCompl.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtClienteComplActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txtClienteCompl);
-        txtClienteCompl.setBounds(80, 250, 240, 30);
+        jLabel11.setBounds(10, 280, 59, 30);
 
         try {
-            txtCleinteCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+            txtClienteCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        txtCleinteCPF.addActionListener(new java.awt.event.ActionListener() {
+        txtClienteCPF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCleinteCPFActionPerformed(evt);
+                txtClienteCPFActionPerformed(evt);
             }
         });
-        getContentPane().add(txtCleinteCPF);
-        txtCleinteCPF.setBounds(390, 130, 140, 30);
-
-        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel12.setText("Bairro");
-        getContentPane().add(jLabel12);
-        jLabel12.setBounds(350, 260, 50, 17);
-
-        txtCleinteBairro.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txtCleinteBairro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCleinteBairroActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txtCleinteBairro);
-        txtCleinteBairro.setBounds(400, 250, 130, 30);
+        getContentPane().add(txtClienteCPF);
+        txtClienteCPF.setBounds(90, 160, 190, 30);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel13.setText("Endereço");
         getContentPane().add(jLabel13);
-        jLabel13.setBounds(10, 220, 70, 17);
+        jLabel13.setBounds(10, 240, 70, 30);
 
-        txtCleinteEndereco.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txtCleinteEndereco.addActionListener(new java.awt.event.ActionListener() {
+        txtClienteEndereco.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtClienteEndereco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCleinteEnderecoActionPerformed(evt);
+                txtClienteEnderecoActionPerformed(evt);
             }
         });
-        getContentPane().add(txtCleinteEndereco);
-        txtCleinteEndereco.setBounds(80, 210, 240, 30);
-
-        btnEditarCli.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnEditarCli.setForeground(new java.awt.Color(0, 102, 255));
-        btnEditarCli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/destakcar/icones/user_edit.png"))); // NOI18N
-        btnEditarCli.setText("Editar");
-        btnEditarCli.setToolTipText("Editar");
-        btnEditarCli.setBorder(null);
-        btnEditarCli.setBorderPainted(false);
-        btnEditarCli.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnEditarCli.setPreferredSize(new java.awt.Dimension(20, 40));
-        getContentPane().add(btnEditarCli);
-        btnEditarCli.setBounds(290, 390, 100, 30);
+        getContentPane().add(txtClienteEndereco);
+        txtClienteEndereco.setBounds(90, 240, 230, 30);
 
         btnAdicionarCli.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnAdicionarCli.setForeground(new java.awt.Color(0, 102, 255));
@@ -295,7 +333,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnAdicionarCli);
-        btnAdicionarCli.setBounds(70, 390, 100, 30);
+        btnAdicionarCli.setBounds(100, 380, 100, 30);
 
         btnConsultarCli.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnConsultarCli.setForeground(new java.awt.Color(0, 102, 255));
@@ -312,7 +350,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnConsultarCli);
-        btnConsultarCli.setBounds(180, 390, 100, 30);
+        btnConsultarCli.setBounds(240, 380, 100, 30);
 
         btnExcluirCli.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnExcluirCli.setForeground(new java.awt.Color(0, 102, 255));
@@ -329,34 +367,30 @@ public class TelaCliente extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnExcluirCli);
-        btnExcluirCli.setBounds(400, 390, 100, 30);
+        btnExcluirCli.setBounds(380, 380, 100, 30);
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/destakcar/icones/icone-cliente.png"))); // NOI18N
         getContentPane().add(jLabel14);
-        jLabel14.setBounds(170, 10, 230, 110);
+        jLabel14.setBounds(160, 0, 220, 140);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtCleinteCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCleinteCidadeActionPerformed
+    private void txtClienteCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtClienteCidadeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCleinteCidadeActionPerformed
+    }//GEN-LAST:event_txtClienteCidadeActionPerformed
 
-    private void txtCleinteCepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCleinteCepActionPerformed
+    private void txtClienteCepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtClienteCepActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCleinteCepActionPerformed
+    }//GEN-LAST:event_txtClienteCepActionPerformed
 
-    private void txtCleinteNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCleinteNomeActionPerformed
+    private void txtClienteNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtClienteNomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCleinteNomeActionPerformed
+    }//GEN-LAST:event_txtClienteNomeActionPerformed
 
-    private void txtCleinteTelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCleinteTelActionPerformed
+    private void txtClienteTelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtClienteTelActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCleinteTelActionPerformed
-
-    private void txtClienteIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtClienteIdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtClienteIdActionPerformed
+    }//GEN-LAST:event_txtClienteTelActionPerformed
 
     private void txtClienteEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtClienteEmailActionPerformed
         // TODO add your handling code here:
@@ -366,72 +400,56 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtClienteNumeroActionPerformed
 
-    private void txtCleinteDNSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCleinteDNSActionPerformed
+    private void txtClienteDNSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtClienteDNSActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCleinteDNSActionPerformed
+    }//GEN-LAST:event_txtClienteDNSActionPerformed
 
-    private void txtClienteComplActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtClienteComplActionPerformed
+    private void txtClienteCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtClienteCPFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtClienteComplActionPerformed
+    }//GEN-LAST:event_txtClienteCPFActionPerformed
 
-    private void txtCleinteCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCleinteCPFActionPerformed
+    private void txtClienteEnderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtClienteEnderecoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCleinteCPFActionPerformed
-
-    private void txtCleinteBairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCleinteBairroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCleinteBairroActionPerformed
-
-    private void txtCleinteEnderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCleinteEnderecoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCleinteEnderecoActionPerformed
+    }//GEN-LAST:event_txtClienteEnderecoActionPerformed
 
     private void btnAdicionarCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarCliActionPerformed
         // TODO add your handling code here:
-       
+        adicionar();
     }//GEN-LAST:event_btnAdicionarCliActionPerformed
 
     private void btnConsultarCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarCliActionPerformed
         // TODO add your handling code here:
-        
+        consultar();
     }//GEN-LAST:event_btnConsultarCliActionPerformed
 
     private void btnExcluirCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirCliActionPerformed
         // TODO add your handling code here:
+        excluir();
     }//GEN-LAST:event_btnExcluirCliActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdicionarCli;
     private javax.swing.JButton btnConsultarCli;
-    private javax.swing.JButton btnEditarCli;
     private javax.swing.JButton btnExcluirCli;
-    private javax.swing.JComboBox<String> cboCleinteUf;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField txtCleinteBairro;
-    private javax.swing.JFormattedTextField txtCleinteCPF;
-    private javax.swing.JFormattedTextField txtCleinteCep;
-    private javax.swing.JTextField txtCleinteCidade;
-    private javax.swing.JFormattedTextField txtCleinteDNS;
-    private javax.swing.JTextField txtCleinteEndereco;
-    private javax.swing.JTextField txtCleinteNome;
-    private javax.swing.JFormattedTextField txtCleinteTel;
-    private javax.swing.JTextField txtClienteCompl;
+    private javax.swing.JFormattedTextField txtClienteCPF;
+    private javax.swing.JFormattedTextField txtClienteCep;
+    private javax.swing.JTextField txtClienteCidade;
+    private javax.swing.JFormattedTextField txtClienteDNS;
     private javax.swing.JTextField txtClienteEmail;
-    private javax.swing.JTextField txtClienteId;
+    private javax.swing.JTextField txtClienteEndereco;
+    private javax.swing.JTextField txtClienteNome;
     private javax.swing.JTextField txtClienteNumero;
+    private javax.swing.JFormattedTextField txtClienteTel;
     // End of variables declaration//GEN-END:variables
 }

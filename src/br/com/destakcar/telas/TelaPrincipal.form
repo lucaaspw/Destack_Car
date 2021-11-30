@@ -87,7 +87,7 @@
                   <KeyStroke key="Alt+C"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\igor_\Desktop\Faculdade\imagem projeto\icons 1\user_gray.png"/>
+                  <Image iconType="3" name="/br/com/destakcar/icones/user_gray.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cliente"/>
               </Properties>
@@ -267,7 +267,7 @@
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="580" y="80" width="130" height="40"/>
+          <AbsoluteConstraints x="570" y="80" width="130" height="40"/>
         </Constraint>
       </Constraints>
     </Component>

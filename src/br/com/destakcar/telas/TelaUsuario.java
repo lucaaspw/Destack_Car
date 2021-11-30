@@ -86,6 +86,61 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
             jOptionPane.showMessageDialog(null, e);
         }
     }
+    
+    private void editar() {
+        String sql = "update tbusers set usuario=?, phone=?, login=?, senha=?,perfil=? where iduser=?";
+        try {
+            pst = conexao.prepareStatement(sql);
+            pst.setString(1, txtUserNome.getText());
+            pst.setString(2, txtUserTelefone.getText());
+            pst.setString(3, txtUserLogin.getText());
+            pst.setString(4, txtUserSenha.getText());
+            pst.setString(5, cboUserPerfil.getSelectedItem().toString());
+            pst.setString(6, txtUserId.getText());
+            if (txtUserId.getText().isEmpty() || txtUserNome.getText().isEmpty() || txtUserTelefone.getText().isEmpty() || txtUserLogin.getText().isEmpty() || txtUserSenha.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Preencha todos os campos");
+            } else {
+
+                int adicionado = pst.executeUpdate();
+                if (adicionado > 0) {
+                    JOptionPane.showMessageDialog(null, "Dados alterados");
+                    // Limpando os campos
+                    txtUserId.setText(null);
+                    txtUserNome.setText(null);
+                    txtUserTelefone.setText(null);
+                    txtUserLogin.setText(null);
+                    txtUserSenha.setText(null);
+                }
+            }
+
+        } catch (Exception e) {
+            jOptionPane.showMessageDialog(null, e);
+        }
+    }
+
+    private void excluir() {
+        // Metodo de exclusão de usuário
+        int confirma;
+        confirma = JOptionPane.showConfirmDialog(null, "Deseja mesmo exclui este usuário?", "Atenção", JOptionPane.YES_NO_OPTION);
+        if (confirma == JOptionPane.YES_OPTION) {
+            String sql = "delete from tbusers where iduser=?";
+            try {
+                pst = conexao.prepareStatement(sql);
+                pst.setString(1, txtUserId.getText());
+                pst.executeUpdate();
+
+                JOptionPane.showMessageDialog(null, "Usuário excluido com sucesso!");
+                txtUserId.setText(null);
+                txtUserNome.setText(null);
+                txtUserTelefone.setText(null);
+                txtUserLogin.setText(null);
+                txtUserSenha.setText(null);
+            } catch (SQLException e) {
+                jOptionPane.showMessageDialog(null, e);
+            }
+        }
+
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -197,6 +252,11 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
         btnEditar.setBorderPainted(false);
         btnEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnEditar.setPreferredSize(new java.awt.Dimension(20, 40));
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnEditar);
         btnEditar.setBounds(280, 370, 100, 30);
 
@@ -274,7 +334,13 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
 
     private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
         // TODO add your handling code here:
+        excluir();
     }//GEN-LAST:event_btnExcluirActionPerformed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        // TODO add your handling code here:
+        editar();
+    }//GEN-LAST:event_btnEditarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

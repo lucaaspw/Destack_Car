@@ -9,7 +9,6 @@ import java.text.DateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
 
-
 /**
  *
  * @author lucas.goncalves
@@ -113,7 +112,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         lblUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblUsuario.setText("Usuário");
         getContentPane().add(lblUsuario);
-        lblUsuario.setBounds(580, 80, 130, 40);
+        lblUsuario.setBounds(570, 80, 130, 40);
 
         lblPerfil.setText("Perfil");
         getContentPane().add(lblPerfil);
@@ -150,7 +149,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         menuCadastro.add(menuUsuario);
 
         menuCliente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_DOWN_MASK));
-        menuCliente.setIcon(new javax.swing.ImageIcon("C:\\Users\\igor_\\Desktop\\Faculdade\\imagem projeto\\icons 1\\user_gray.png")); // NOI18N
+        menuCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/destakcar/icones/user_gray.png"))); // NOI18N
         menuCliente.setText("Cliente");
         menuCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -213,16 +212,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void menuSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSairActionPerformed
         // TODO add your handling code here:
         // Exibe uma caixa de dialogo
-        int sair = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja sair?", " Atenção",  JOptionPane.YES_NO_OPTION);
-        if(sair == JOptionPane.YES_OPTION){
-            System.exit(0);
+        int sair = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja sair?", " Atenção", JOptionPane.YES_NO_OPTION);
+        if (sair == JOptionPane.YES_OPTION) {
+            TelaLogin telaLogin = new TelaLogin();
+            telaLogin.setVisible(true);
+            this.dispose();
         }
     }//GEN-LAST:event_menuSairActionPerformed
 
     private void menuClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuClienteActionPerformed
         // TODO add your handling code here:
-         // Abrindo o form TelaUsuario dentro do dedsktop pane
-        TelaCliente cliente= new TelaCliente();
+        // Abrindo o form TelaUsuario dentro do dedsktop pane
+        TelaCliente cliente = new TelaCliente();
         cliente.setVisible(true);
         desktop.add(cliente);
     }//GEN-LAST:event_menuClienteActionPerformed
@@ -232,12 +233,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         Date data = new Date();
         DateFormat formatador = DateFormat.getDateInstance(DateFormat.SHORT);
         lblData.setText(formatador.format(data));
-        
+
     }//GEN-LAST:event_formWindowActivated
 
     private void menuCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCadastroActionPerformed
         // TODO add your handling code here:
-       
+
     }//GEN-LAST:event_menuCadastroActionPerformed
 
     private void menuUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuUsuarioActionPerformed
@@ -250,8 +251,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void menuVeiculosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuVeiculosActionPerformed
         // TODO add your handling code here:
-         // Abrindo o form TelaVeiculos dentro do dedsktop pane
-        TelaVeiculos veiculos= new TelaVeiculos();
+        // Abrindo o form TelaVeiculos dentro do dedsktop pane
+        TelaVeiculos veiculos = new TelaVeiculos();
         veiculos.setVisible(true);
         desktop.add(veiculos);
     }//GEN-LAST:event_menuVeiculosActionPerformed
@@ -284,10 +285,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaPrincipal().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new TelaPrincipal().setVisible(true);
         });
     }
 

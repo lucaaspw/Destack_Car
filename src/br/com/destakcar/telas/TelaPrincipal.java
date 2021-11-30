@@ -51,6 +51,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         menuClientes = new javax.swing.JMenu();
         menuVeiculos = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
+        menuPagamento = new javax.swing.JMenuItem();
         menuRelatorio = new javax.swing.JMenu();
         menuOpcoes = new javax.swing.JMenu();
         menuSair = new javax.swing.JMenuItem();
@@ -182,6 +183,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/destakcar/icones/wrench.png"))); // NOI18N
         jMenu5.setText("Serviços");
+
+        menuPagamento.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        menuPagamento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/destakcar/icones/money.png"))); // NOI18N
+        menuPagamento.setText("Pagamento");
+        menuPagamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuPagamentoActionPerformed(evt);
+            }
+        });
+        jMenu5.add(menuPagamento);
+
         menuPrincipal.add(jMenu5);
 
         menuRelatorio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/destakcar/icones/report.png"))); // NOI18N
@@ -257,6 +269,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         desktop.add(veiculos);
     }//GEN-LAST:event_menuVeiculosActionPerformed
 
+    private void menuPagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuPagamentoActionPerformed
+        // TODO add your handling code here:
+        // Abrindo o form TelaVeiculos dentro do dedsktop pane
+        TelaPagamento pagamento = new TelaPagamento();
+        pagamento.setVisible(true);
+        desktop.add(pagamento);
+    }//GEN-LAST:event_menuPagamentoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -308,6 +328,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuCliente;
     private javax.swing.JMenu menuClientes;
     private javax.swing.JMenu menuOpcoes;
+    public static javax.swing.JMenuItem menuPagamento;
     private javax.swing.JMenuBar menuPrincipal;
     private javax.swing.JMenu menuRelatorio;
     private javax.swing.JMenuItem menuSair;

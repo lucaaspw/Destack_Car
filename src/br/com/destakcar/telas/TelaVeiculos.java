@@ -108,7 +108,7 @@ public class TelaVeiculos extends javax.swing.JInternalFrame {
         btnEditarCli.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnEditarCli.setPreferredSize(new java.awt.Dimension(20, 40));
         getContentPane().add(btnEditarCli);
-        btnEditarCli.setBounds(230, 380, 100, 30);
+        btnEditarCli.setBounds(250, 380, 100, 30);
 
         btnAdicionarCli.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnAdicionarCli.setForeground(new java.awt.Color(0, 102, 255));
@@ -125,7 +125,7 @@ public class TelaVeiculos extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnAdicionarCli);
-        btnAdicionarCli.setBounds(70, 380, 100, 30);
+        btnAdicionarCli.setBounds(90, 380, 100, 30);
 
         btnConsultarCli.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnConsultarCli.setForeground(new java.awt.Color(0, 102, 255));
@@ -158,7 +158,7 @@ public class TelaVeiculos extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnExcluirCli);
-        btnExcluirCli.setBounds(400, 380, 100, 30);
+        btnExcluirCli.setBounds(420, 380, 100, 30);
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/destakcar/icones/icone-carro.png"))); // NOI18N
         getContentPane().add(jLabel14);
@@ -190,7 +190,7 @@ public class TelaVeiculos extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(cboCleinteUf1);
-        cboCleinteUf1.setBounds(90, 200, 98, 30);
+        cboCleinteUf1.setBounds(90, 200, 91, 30);
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel16.setText(" Ano");
@@ -231,7 +231,7 @@ public class TelaVeiculos extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(txtareaVeiculo);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(90, 280, 430, 86);
+        jScrollPane1.setBounds(90, 280, 430, 96);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

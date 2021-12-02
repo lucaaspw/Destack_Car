@@ -117,7 +117,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         lblPerfil.setText("Perfil");
         getContentPane().add(lblPerfil);
-        lblPerfil.setBounds(700, 90, 50, 14);
+        lblPerfil.setBounds(700, 90, 50, 16);
 
         lblHojeE.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblHojeE.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -162,6 +162,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         menuServico.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.ALT_DOWN_MASK));
         menuServico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/destakcar/icones/folder_wrench.png"))); // NOI18N
         menuServico.setText("Serviço");
+        menuServico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuServicoActionPerformed(evt);
+            }
+        });
         menuCadastro.add(menuServico);
 
         menuPrincipal.add(menuCadastro);
@@ -264,9 +269,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void menuVeiculosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuVeiculosActionPerformed
         // TODO add your handling code here:
         // Abrindo o form TelaVeiculos dentro do dedsktop pane
-        TelaVeiculos veiculos = new TelaVeiculos();
-        veiculos.setVisible(true);
-        desktop.add(veiculos);
     }//GEN-LAST:event_menuVeiculosActionPerformed
 
     private void menuPagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuPagamentoActionPerformed
@@ -276,6 +278,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
         pagamento.setVisible(true);
         desktop.add(pagamento);
     }//GEN-LAST:event_menuPagamentoActionPerformed
+
+    private void menuServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuServicoActionPerformed
+        // TODO add your handling code here:
+        TelaServicos servicos = new TelaServicos();
+        servicos.setVisible(true);
+        desktop.add(servicos);
+    }//GEN-LAST:event_menuServicoActionPerformed
 
     /**
      * @param args the command line arguments

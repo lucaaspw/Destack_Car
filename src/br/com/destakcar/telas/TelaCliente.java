@@ -206,7 +206,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("Data Nasc.");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(340, 160, 80, 30);
+        jLabel4.setBounds(330, 160, 80, 30);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setText("Nome");
@@ -284,7 +284,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(txtClienteDNS);
-        txtClienteDNS.setBounds(430, 160, 100, 30);
+        txtClienteDNS.setBounds(410, 160, 120, 30);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setText("Telefone");
@@ -302,7 +302,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(txtClienteCPF);
-        txtClienteCPF.setBounds(90, 160, 110, 30);
+        txtClienteCPF.setBounds(150, 160, 140, 30);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel13.setText("Endereço");
@@ -349,7 +349,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnConsultarCli);
-        btnConsultarCli.setBounds(60, 160, 30, 30);
+        btnConsultarCli.setBounds(90, 160, 50, 30);
 
         btnExcluirCli.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnExcluirCli.setForeground(new java.awt.Color(0, 102, 255));

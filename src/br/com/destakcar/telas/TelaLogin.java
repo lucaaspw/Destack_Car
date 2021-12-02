@@ -68,9 +68,9 @@ public class TelaLogin extends javax.swing.JFrame {
 
         // Testando a conexão com o banco mudando o status na tela
         if (conexao != null) {
-            lblStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/destakcar/icones/dbok.png")));
+            lblStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/destakcar/icones/carro.png")));
         } else {
-            lblStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/destakcar/icones/dberror.png")));
+            lblStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/destakcar/icones/batida.png")));
         }
     }
     
@@ -95,8 +95,7 @@ public class TelaLogin extends javax.swing.JFrame {
         panel1 = new java.awt.Panel();
         jLabel1 = new javax.swing.JLabel();
         lblStatus = new javax.swing.JLabel();
-
-        jFrame1.getContentPane().setLayout(new java.awt.BorderLayout());
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Destak Car Login");
@@ -110,34 +109,34 @@ public class TelaLogin extends javax.swing.JFrame {
         lblPassword.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         lblPassword.setText("Senha");
         getContentPane().add(lblPassword);
-        lblPassword.setBounds(180, 270, 100, 29);
+        lblPassword.setBounds(150, 270, 100, 32);
 
         txtUser.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         getContentPane().add(txtUser);
-        txtUser.setBounds(280, 180, 270, 50);
+        txtUser.setBounds(250, 180, 270, 50);
 
         lblUser.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         lblUser.setText("Usuário");
         getContentPane().add(lblUser);
-        lblUser.setBounds(170, 190, 100, 30);
+        lblUser.setBounds(140, 190, 100, 30);
 
         txtPassword.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         getContentPane().add(txtPassword);
-        txtPassword.setBounds(280, 250, 270, 50);
+        txtPassword.setBounds(250, 250, 270, 50);
 
-        btnRegister.setBackground(new java.awt.Color(51, 153, 255));
+        btnRegister.setBackground(new java.awt.Color(11, 58, 96));
         btnRegister.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
         btnRegister.setForeground(new java.awt.Color(255, 255, 255));
         btnRegister.setText("Registrar");
         btnRegister.setBorder(null);
         btnRegister.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().add(btnRegister);
-        btnRegister.setBounds(390, 330, 160, 50);
+        btnRegister.setBounds(380, 330, 160, 50);
 
-        btnLogin.setBackground(new java.awt.Color(102, 153, 255));
+        btnLogin.setBackground(new java.awt.Color(11, 58, 96));
         btnLogin.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
         btnLogin.setForeground(new java.awt.Color(255, 255, 255));
-        btnLogin.setText("Login");
+        btnLogin.setText("Acessar");
         btnLogin.setBorder(null);
         btnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -146,22 +145,26 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnLogin);
-        btnLogin.setBounds(160, 330, 160, 50);
+        btnLogin.setBounds(150, 330, 160, 50);
 
-        panel1.setBackground(new java.awt.Color(51, 153, 255));
+        panel1.setBackground(new java.awt.Color(11, 58, 96));
         panel1.setForeground(new java.awt.Color(255, 255, 255));
         panel1.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Destak Car Login");
+        jLabel1.setText("Destak Car");
         panel1.add(jLabel1);
-        jLabel1.setBounds(180, 20, 340, 50);
+        jLabel1.setBounds(240, 20, 210, 50);
 
         lblStatus.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        lblStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/destakcar/icones/dberror.png"))); // NOI18N
+        lblStatus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/destakcar/icones/batida.png"))); // NOI18N
         panel1.add(lblStatus);
-        lblStatus.setBounds(520, 20, 180, 50);
+        lblStatus.setBounds(560, 20, 80, 50);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/destakcar/icones/logo1.png"))); // NOI18N
+        panel1.add(jLabel2);
+        jLabel2.setBounds(30, 10, 80, 70);
 
         getContentPane().add(panel1);
         panel1.setBounds(0, 0, 670, 100);
@@ -215,6 +218,7 @@ public class TelaLogin extends javax.swing.JFrame {
     private javax.swing.JButton btnRegister;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblStatus;

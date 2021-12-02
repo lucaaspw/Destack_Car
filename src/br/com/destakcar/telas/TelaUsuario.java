@@ -86,6 +86,61 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
             jOptionPane.showMessageDialog(null, e);
         }
     }
+    
+    private void editar() {
+        String sql = "update tbusers set usuario=?, phone=?, login=?, senha=?,perfil=? where iduser=?";
+        try {
+            pst = conexao.prepareStatement(sql);
+            pst.setString(1, txtUserNome.getText());
+            pst.setString(2, txtUserTelefone.getText());
+            pst.setString(3, txtUserLogin.getText());
+            pst.setString(4, txtUserSenha.getText());
+            pst.setString(5, cboUserPerfil.getSelectedItem().toString());
+            pst.setString(6, txtUserId.getText());
+            if (txtUserId.getText().isEmpty() || txtUserNome.getText().isEmpty() || txtUserTelefone.getText().isEmpty() || txtUserLogin.getText().isEmpty() || txtUserSenha.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Preencha todos os campos");
+            } else {
+
+                int adicionado = pst.executeUpdate();
+                if (adicionado > 0) {
+                    JOptionPane.showMessageDialog(null, "Dados alterados");
+                    // Limpando os campos
+                    txtUserId.setText(null);
+                    txtUserNome.setText(null);
+                    txtUserTelefone.setText(null);
+                    txtUserLogin.setText(null);
+                    txtUserSenha.setText(null);
+                }
+            }
+
+        } catch (Exception e) {
+            jOptionPane.showMessageDialog(null, e);
+        }
+    }
+
+    private void excluir() {
+        // Metodo de exclusão de usuário
+        int confirma;
+        confirma = JOptionPane.showConfirmDialog(null, "Deseja mesmo exclui este usuário?", "Atenção", JOptionPane.YES_NO_OPTION);
+        if (confirma == JOptionPane.YES_OPTION) {
+            String sql = "delete from tbusers where iduser=?";
+            try {
+                pst = conexao.prepareStatement(sql);
+                pst.setString(1, txtUserId.getText());
+                pst.executeUpdate();
+
+                JOptionPane.showMessageDialog(null, "Usuário excluido com sucesso!");
+                txtUserId.setText(null);
+                txtUserNome.setText(null);
+                txtUserTelefone.setText(null);
+                txtUserLogin.setText(null);
+                txtUserSenha.setText(null);
+            } catch (SQLException e) {
+                jOptionPane.showMessageDialog(null, e);
+            }
+        }
+
+    }
 
     private void editar() {
         String sql = "update tbusers set usuario=?, phone=?, login=?, senha=?,perfil=? where iduser=?";
@@ -167,6 +222,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
         btnAdicionar = new javax.swing.JButton();
         btnConsultar = new javax.swing.JButton();
         btnExcluir = new javax.swing.JButton();
+        lbliconeusuario = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
@@ -244,11 +300,12 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
 
         btnEditar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnEditar.setForeground(new java.awt.Color(0, 102, 255));
+        btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/destakcar/icones/user_edit.png"))); // NOI18N
         btnEditar.setText("Editar");
         btnEditar.setToolTipText("Editar");
         btnEditar.setBorder(null);
         btnEditar.setBorderPainted(false);
-        btnEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnEditar.setPreferredSize(new java.awt.Dimension(20, 40));
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -260,11 +317,12 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
 
         btnAdicionar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnAdicionar.setForeground(new java.awt.Color(0, 102, 255));
-        btnAdicionar.setText("Criar");
+        btnAdicionar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/destakcar/icones/accept.png"))); // NOI18N
+        btnAdicionar.setText("Confirmar");
         btnAdicionar.setToolTipText("Adicionar");
         btnAdicionar.setBorder(null);
         btnAdicionar.setBorderPainted(false);
-        btnAdicionar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAdicionar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnAdicionar.setPreferredSize(new java.awt.Dimension(20, 40));
         btnAdicionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -276,11 +334,12 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
 
         btnConsultar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnConsultar.setForeground(new java.awt.Color(0, 102, 255));
+        btnConsultar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/destakcar/icones/magnifier.png"))); // NOI18N
         btnConsultar.setText("Buscar");
         btnConsultar.setToolTipText("Consultar");
         btnConsultar.setBorder(null);
         btnConsultar.setBorderPainted(false);
-        btnConsultar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnConsultar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnConsultar.setPreferredSize(new java.awt.Dimension(20, 40));
         btnConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -292,11 +351,12 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
 
         btnExcluir.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnExcluir.setForeground(new java.awt.Color(0, 102, 255));
+        btnExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/destakcar/icones/user_delete.png"))); // NOI18N
         btnExcluir.setText("Deletar");
         btnExcluir.setToolTipText("Excluir");
         btnExcluir.setBorder(null);
         btnExcluir.setBorderPainted(false);
-        btnExcluir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnExcluir.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnExcluir.setPreferredSize(new java.awt.Dimension(20, 40));
         btnExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -305,6 +365,10 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
         });
         getContentPane().add(btnExcluir);
         btnExcluir.setBounds(390, 370, 100, 30);
+
+        lbliconeusuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/destakcar/icones/icone-usuario.png"))); // NOI18N
+        getContentPane().add(lbliconeusuario);
+        lbliconeusuario.setBounds(200, 20, 160, 170);
 
         setBounds(0, 0, 550, 484);
     }// </editor-fold>//GEN-END:initComponents
@@ -346,6 +410,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel lblPerfil;
     private javax.swing.JLabel lblSenha;
+    private javax.swing.JLabel lbliconeusuario;
     private javax.swing.JTextField txtUserId;
     private javax.swing.JTextField txtUserLogin;
     private javax.swing.JTextField txtUserNome;

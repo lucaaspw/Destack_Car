@@ -13,7 +13,7 @@ import java.sql.*;
 import br.com.destakcar.dal.ModuloConexao;
 import javax.swing.JOptionPane;
 
-public class TelaUsuario extends javax.swing.JInternalFrame {
+public class TelaCliente extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form TelaUsuario
@@ -22,7 +22,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
     PreparedStatement pst = null;
     ResultSet rs = null;
 
-    public TelaUsuario() {
+    public TelaCliente() {
         initComponents();
         conexao = ModuloConexao.conector();
     }
@@ -171,7 +171,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
-        setTitle("Usuários");
+        setTitle("Cliente");
         setPreferredSize(new java.awt.Dimension(550, 480));
         setRequestFocusEnabled(false);
         try {

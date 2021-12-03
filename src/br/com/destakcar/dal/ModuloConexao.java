@@ -21,7 +21,7 @@ public class ModuloConexao {
         // Armazenando informções referente ao banco
         String url = "jdbc:mysql://localhost:3306/dbinfo";
         String user = "root";
-        String password = "1327";
+        String password = "senha do banco";
         // Estabelece a conexão com o banco
         try {
             Class.forName(driver);

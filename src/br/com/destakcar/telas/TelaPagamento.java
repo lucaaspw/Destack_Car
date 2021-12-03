@@ -34,7 +34,7 @@ public class TelaPagamento extends javax.swing.JInternalFrame {
         txtNomePag = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        txtareaVeiculo = new javax.swing.JTextArea();
+        txtareaServicoPag = new javax.swing.JTextArea();
         btnFinalizarPag = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
@@ -46,7 +46,7 @@ public class TelaPagamento extends javax.swing.JInternalFrame {
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
-        setTitle("Pagamento");
+        setTitle("Pagamentos");
         setPreferredSize(new java.awt.Dimension(550, 480));
         setRequestFocusEnabled(false);
         try {
@@ -96,9 +96,9 @@ public class TelaPagamento extends javax.swing.JInternalFrame {
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setText("Serviço");
 
-        txtareaVeiculo.setColumns(20);
-        txtareaVeiculo.setRows(5);
-        jScrollPane1.setViewportView(txtareaVeiculo);
+        txtareaServicoPag.setColumns(20);
+        txtareaServicoPag.setRows(5);
+        jScrollPane1.setViewportView(txtareaServicoPag);
 
         btnFinalizarPag.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnFinalizarPag.setForeground(new java.awt.Color(0, 102, 255));
@@ -161,13 +161,12 @@ public class TelaPagamento extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(26, 26, 26)
-                            .addComponent(txtValorDeb, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(191, 191, 191))
-                        .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(26, 26, 26)
+                                .addComponent(txtValorDeb, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel19)
@@ -188,8 +187,8 @@ public class TelaPagamento extends javax.swing.JInternalFrame {
                                             .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addComponent(txtNomePag, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGap(18, 18, 18)))
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(18, 18, 18))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(142, 142, 142))
@@ -278,6 +277,6 @@ public class TelaPagamento extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtNomePag;
     private javax.swing.JTextField txtValorDeb;
     private javax.swing.JTextField txtValorPago;
-    private javax.swing.JTextArea txtareaVeiculo;
+    private javax.swing.JTextArea txtareaServicoPag;
     // End of variables declaration//GEN-END:variables
 }

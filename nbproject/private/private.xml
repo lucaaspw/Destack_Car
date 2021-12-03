@@ -3,7 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/lucas.goncalves/OneDrive%20-%20Ogilvy/Desktop/Igor/Destack_Car/src/br/com/destakcar/telas/TelaServicos.java</file>
+=======
+            <file>file:/C:/Users/igor_/Desktop/Faculdade/Projeto%20oficina/Destack_Car/src/br/com/destakcar/telas/TelaPrincipal.java</file>
+            <file>file:/C:/Users/igor_/Desktop/Faculdade/Projeto%20oficina/Destack_Car/src/br/com/destakcar/telas/TelaRelatorio.java</file>
+>>>>>>> 66ea3fc7c02d0f6f651de5a587e7a87b7db19ad6
         </group>
     </open-files>
 </project-private>

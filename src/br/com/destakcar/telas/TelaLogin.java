@@ -54,7 +54,7 @@ public class TelaLogin extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Usuário e/ou senha inválido");
             }
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
         }
     }
@@ -108,20 +108,28 @@ public class TelaLogin extends javax.swing.JFrame {
         lblPassword.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         lblPassword.setText("Senha");
         getContentPane().add(lblPassword);
-        lblPassword.setBounds(150, 270, 100, 32);
+        lblPassword.setBounds(130, 270, 100, 29);
 
         txtUser.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         getContentPane().add(txtUser);
-        txtUser.setBounds(250, 180, 270, 50);
+        txtUser.setBounds(230, 180, 270, 50);
 
         lblUser.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         lblUser.setText("Usuário");
         getContentPane().add(lblUser);
+<<<<<<< HEAD
         lblUser.setBounds(150, 200, 100, 30);
 
         txtPassword.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         getContentPane().add(txtPassword);
         txtPassword.setBounds(250, 250, 270, 50);
+=======
+        lblUser.setBounds(120, 190, 100, 30);
+
+        txtPassword.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        getContentPane().add(txtPassword);
+        txtPassword.setBounds(230, 250, 270, 50);
+>>>>>>> cbcf410d0b0c950ad2927a5e13d129c7a8860060
 
         btnLogin.setBackground(new java.awt.Color(11, 58, 96));
         btnLogin.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
@@ -135,7 +143,11 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnLogin);
+<<<<<<< HEAD
         btnLogin.setBounds(250, 350, 160, 50);
+=======
+        btnLogin.setBounds(230, 330, 160, 50);
+>>>>>>> cbcf410d0b0c950ad2927a5e13d129c7a8860060
 
         panel1.setBackground(new java.awt.Color(11, 58, 96));
         panel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -184,22 +196,16 @@ public class TelaLogin extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        
+        //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaLogin().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new TelaLogin().setVisible(true);
         });
     }
 

@@ -113,7 +113,7 @@ public class TelaUsuario extends javax.swing.JInternalFrame {
                 }
             }
 
-        } catch (Exception e) {
+        } catch (SQLException e) {
             jOptionPane.showMessageDialog(null, e);
         }
     }

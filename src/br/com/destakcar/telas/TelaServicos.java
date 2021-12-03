@@ -318,11 +318,7 @@ public class TelaServicos extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(txtServicoCPF);
-<<<<<<< HEAD
         txtServicoCPF.setBounds(150, 160, 130, 30);
-=======
-        txtServicoCPF.setBounds(120, 160, 51, 30);
->>>>>>> 66ea3fc7c02d0f6f651de5a587e7a87b7db19ad6
 
         cboServicoMarca.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         cboServicoMarca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Selecionar-", "FIAT", "Volkswagen", "GM", "Hyundai", "Jeep", "Renault", "Toyota", "Ford", "Honda", "Nissan", "Caoa Chery", "Peugeot", "Mitsubishi", "Citroen", "BMW", "Volvo", "Mercedes", "Audi", "Kia", "RAM", "Iveco", "Land Rover", "Porsche", "Suzuki", "Mini", "JAC", "Troler", "Subaru", "Jaguar", "Dodge", "Foton", "Lexus", " " }));
@@ -340,7 +336,7 @@ public class TelaServicos extends javax.swing.JInternalFrame {
         jLabel16.setBounds(40, 240, 50, 30);
 
         cboServicoAno.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        cboServicoAno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Selecionar-", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", " ", " " }));
+        cboServicoAno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Selecionar-", "1990", "1991", "1992", "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025", "2026", "", "" }));
         cboServicoAno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cboServicoAnoActionPerformed(evt);
@@ -373,11 +369,7 @@ public class TelaServicos extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(txtareaServico);
 
         getContentPane().add(jScrollPane1);
-<<<<<<< HEAD
         jScrollPane1.setBounds(100, 280, 430, 86);
-=======
-        jScrollPane1.setBounds(70, 280, 450, 96);
->>>>>>> 66ea3fc7c02d0f6f651de5a587e7a87b7db19ad6
 
         txtServicoId.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtServicoId.setDoubleBuffered(true);

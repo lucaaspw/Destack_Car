@@ -112,7 +112,7 @@ public class TelaServicos extends javax.swing.JInternalFrame {
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
-        setTitle("Serviços");
+        setTitle("Serviço");
         setPreferredSize(new java.awt.Dimension(550, 480));
         setRequestFocusEnabled(false);
         try {
@@ -228,7 +228,7 @@ public class TelaServicos extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(txtServicoCPF);
-        txtServicoCPF.setBounds(120, 160, 92, 30);
+        txtServicoCPF.setBounds(120, 160, 51, 30);
 
         cboServicoMarca.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         cboServicoMarca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Selecionar-", "FIAT", "Volkswagen", "GM", "Hyundai", "Jeep", "Renault", "Toyota", "Ford", "Honda", "Nissan", "Caoa Chery", "Peugeot", "Mitsubishi", "Citroen", "BMW", "Volvo", "Mercedes", "Audi", "Kia", "RAM", "Iveco", "Land Rover", "Porsche", "Suzuki", "Mini", "JAC", "Troler", "Subaru", "Jaguar", "Dodge", "Foton", "Lexus", " " }));
@@ -279,7 +279,7 @@ public class TelaServicos extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(txtareaServico);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(70, 280, 450, 86);
+        jScrollPane1.setBounds(70, 280, 450, 96);
 
         txtServicoId.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtServicoId.setDoubleBuffered(true);

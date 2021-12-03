@@ -228,7 +228,7 @@ public class TelaServicos extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(txtServicoCPF);
-        txtServicoCPF.setBounds(120, 160, 51, 30);
+        txtServicoCPF.setBounds(120, 160, 70, 30);
 
         cboServicoMarca.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         cboServicoMarca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Selecionar-", "FIAT", "Volkswagen", "GM", "Hyundai", "Jeep", "Renault", "Toyota", "Ford", "Honda", "Nissan", "Caoa Chery", "Peugeot", "Mitsubishi", "Citroen", "BMW", "Volvo", "Mercedes", "Audi", "Kia", "RAM", "Iveco", "Land Rover", "Porsche", "Suzuki", "Mini", "JAC", "Troler", "Subaru", "Jaguar", "Dodge", "Foton", "Lexus", " " }));

@@ -90,7 +90,6 @@ public class TelaLogin extends javax.swing.JFrame {
         txtUser = new javax.swing.JTextField();
         lblUser = new javax.swing.JLabel();
         txtPassword = new javax.swing.JPasswordField();
-        btnRegister = new javax.swing.JButton();
         btnLogin = new javax.swing.JButton();
         panel1 = new java.awt.Panel();
         jLabel1 = new javax.swing.JLabel();
@@ -118,20 +117,11 @@ public class TelaLogin extends javax.swing.JFrame {
         lblUser.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         lblUser.setText("Usuário");
         getContentPane().add(lblUser);
-        lblUser.setBounds(140, 190, 100, 30);
+        lblUser.setBounds(150, 200, 100, 30);
 
         txtPassword.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         getContentPane().add(txtPassword);
         txtPassword.setBounds(250, 250, 270, 50);
-
-        btnRegister.setBackground(new java.awt.Color(11, 58, 96));
-        btnRegister.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
-        btnRegister.setForeground(new java.awt.Color(255, 255, 255));
-        btnRegister.setText("Registrar");
-        btnRegister.setBorder(null);
-        btnRegister.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        getContentPane().add(btnRegister);
-        btnRegister.setBounds(380, 330, 160, 50);
 
         btnLogin.setBackground(new java.awt.Color(11, 58, 96));
         btnLogin.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
@@ -145,7 +135,7 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnLogin);
-        btnLogin.setBounds(150, 330, 160, 50);
+        btnLogin.setBounds(250, 350, 160, 50);
 
         panel1.setBackground(new java.awt.Color(11, 58, 96));
         panel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -215,7 +205,6 @@ public class TelaLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
-    private javax.swing.JButton btnRegister;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

@@ -55,7 +55,7 @@ public class TelaServicos extends javax.swing.JInternalFrame {
                     JOptionPane.showMessageDialog(null, "Serviço cadastrado com sucesso");
                     // Limpando os campos
                     txtServicoPlaca.setText(null);
-                    txtServicoPlaca.setText(null);
+                    txtServicoModelo.setText(null);
                     txtareaServico.setText(null);
                     cboServicoMarca.setSelectedItem(null);
                     cboServicoAno.setSelectedItem(null);
@@ -69,32 +69,104 @@ public class TelaServicos extends javax.swing.JInternalFrame {
     }
 
     private void consultar() {
-        String sql = "select cpfcli, marca, modelo, ano, placa, servico, idcli from tbos inner join tbcliente on tbos.idcli = tbcliente.idcli";
+        String sql = "select * from tbcliente where cpfcli=?";
+
         try {
             pst = conexao.prepareStatement(sql);
             pst.setString(1, txtServicoCPF.getText());
-            pst.setString(2, cboServicoMarca.getSelectedItem().toString());
-            pst.setString(3, txtServicoModelo.getText());
-            pst.setString(4, cboServicoAno.getSelectedItem().toString());
-            pst.setString(5, txtServicoPlaca.getText());
-            pst.setString(6, txtareaServico.getText());
-            pst.setString(7, txtServicoId.getText());
             rs = pst.executeQuery();
             if (rs.next()) {
                 txtServicoId.setText(rs.getString(1));
-                txtServicoModelo.setText(6);
                 txtServicoNome.setText(rs.getString(4));
-
             } else {
-                JOptionPane.showMessageDialog(null, "Usuário não encontrado");
+                JOptionPane.showMessageDialog(null, "Cliente não encontrado");
                 // Limpando os campos
                 txtServicoCPF.setText(null);
                 txtServicoNome.setText(null);
+                txtServicoId.setText(null);
 
             }
         } catch (SQLException e) {
             jOptionPane.showMessageDialog(null, e);
         }
+    }
+
+    private void buscarServico() {
+        String sql = "select * from tbos where idcli=?";
+
+        try {
+            pst = conexao.prepareStatement(sql);
+            pst.setString(1, txtServicoId.getText());
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                cboServicoMarca.setSelectedItem(rs.getString(2));
+                txtServicoModelo.setText(rs.getString(3));
+                cboServicoAno.setSelectedItem(rs.getString(4));
+                txtServicoPlaca.setText(rs.getString(5));
+                txtareaServico.setText(rs.getString(6));
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Serviço não encontrado");
+                // Limpando os campos
+
+            }
+        } catch (SQLException e) {
+            jOptionPane.showMessageDialog(null, e);
+        }
+    }
+
+    private void editar() {
+        String sql = "update tbos set marca=?, modelo=?, ano=?, placa=?, servico=? where idcli=?";
+        try {
+            pst = conexao.prepareStatement(sql);
+            pst.setString(1, cboServicoMarca.getSelectedItem().toString());
+            pst.setString(2, txtServicoModelo.getText());
+            pst.setString(3, cboServicoAno.getSelectedItem().toString());
+            pst.setString(4, txtServicoPlaca.getText());
+            pst.setString(5, txtareaServico.getText());
+            pst.setString(6, txtServicoId.getText());
+            if (cboServicoMarca.getSelectedItem().toString().isEmpty() || txtServicoModelo.getText().isEmpty() || cboServicoAno.getSelectedItem().toString().isEmpty() || txtServicoPlaca.getText().isEmpty() || txtareaServico.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Preencha todos os campos");
+            } else {
+
+                int adicionado = pst.executeUpdate();
+                if (adicionado > 0) {
+                    JOptionPane.showMessageDialog(null, "Dados alterados");
+                    // Limpando os campos
+                    txtServicoModelo.setText(null);
+                    txtServicoPlaca.setText(null);
+                    txtareaServico.setText(null);
+                    txtServicoCPF.setText(null);
+                    txtServicoId.setText(null);
+                }
+            }
+
+        } catch (SQLException e) {
+            jOptionPane.showMessageDialog(null, e);
+        }
+    }
+
+    private void excluir() {
+        int confirma;
+        confirma = JOptionPane.showConfirmDialog(null, "Deseja mesmo excluir este serviço?", "Atenção", JOptionPane.YES_NO_OPTION);
+        if (confirma == JOptionPane.YES_OPTION) {
+            String sql = "delete from tbos where idcli=?";
+            try {
+                pst = conexao.prepareStatement(sql);
+                pst.setString(1, txtServicoId.getText());
+                pst.executeUpdate();
+
+                JOptionPane.showMessageDialog(null, "Serviço excluído com sucesso!");
+                txtServicoModelo.setText(null);
+                txtServicoPlaca.setText(null);
+                txtareaServico.setText(null);
+                txtServicoCPF.setText(null);
+                txtServicoId.setText(null);
+            } catch (SQLException e) {
+                jOptionPane.showMessageDialog(null, e);
+            }
+        }
+
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -120,6 +192,7 @@ public class TelaServicos extends javax.swing.JInternalFrame {
         txtareaServico = new javax.swing.JTextArea();
         txtServicoId = new javax.swing.JTextField();
         txtServicoModelo = new javax.swing.JTextField();
+        btnBuscarServico = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -167,8 +240,13 @@ public class TelaServicos extends javax.swing.JInternalFrame {
         btnEditarServ.setBorderPainted(false);
         btnEditarServ.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnEditarServ.setPreferredSize(new java.awt.Dimension(20, 40));
+        btnEditarServ.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarServActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnEditarServ);
-        btnEditarServ.setBounds(270, 380, 100, 30);
+        btnEditarServ.setBounds(320, 380, 100, 30);
 
         btnAdicionarServ.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnAdicionarServ.setForeground(new java.awt.Color(0, 102, 255));
@@ -313,6 +391,23 @@ public class TelaServicos extends javax.swing.JInternalFrame {
         getContentPane().add(txtServicoModelo);
         txtServicoModelo.setBounds(340, 200, 190, 30);
 
+        btnBuscarServico.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnBuscarServico.setForeground(new java.awt.Color(0, 102, 255));
+        btnBuscarServico.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/destakcar/icones/magnifier.png"))); // NOI18N
+        btnBuscarServico.setText("Buscar");
+        btnBuscarServico.setToolTipText("Editar");
+        btnBuscarServico.setBorder(null);
+        btnBuscarServico.setBorderPainted(false);
+        btnBuscarServico.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnBuscarServico.setPreferredSize(new java.awt.Dimension(20, 40));
+        btnBuscarServico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarServicoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnBuscarServico);
+        btnBuscarServico.setBounds(210, 380, 100, 30);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -332,6 +427,7 @@ public class TelaServicos extends javax.swing.JInternalFrame {
 
     private void btnExcluirServActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirServActionPerformed
         // TODO add your handling code here:
+        excluir();
     }//GEN-LAST:event_btnExcluirServActionPerformed
 
     private void txtServicoCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtServicoCPFActionPerformed
@@ -358,9 +454,20 @@ public class TelaServicos extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtServicoModeloActionPerformed
 
+    private void btnEditarServActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarServActionPerformed
+        // TODO add your handling code here:
+        editar();
+    }//GEN-LAST:event_btnEditarServActionPerformed
+
+    private void btnBuscarServicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarServicoActionPerformed
+        // TODO add your handling code here:
+        buscarServico();
+    }//GEN-LAST:event_btnBuscarServicoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdicionarServ;
+    private javax.swing.JButton btnBuscarServico;
     private javax.swing.JButton btnConsultarServ;
     private javax.swing.JButton btnEditarServ;
     private javax.swing.JButton btnExcluirServ;

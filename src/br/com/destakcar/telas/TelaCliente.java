@@ -49,7 +49,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
 
                 int adicionado = pst.executeUpdate();
                 if (adicionado > 0) {
-                    JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso");
+                    JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso");
                     // Limpando os campos
                     txtClienteNome.setText(null);
                     txtClienteEndereco.setText(null);
@@ -83,7 +83,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
                 txtClienteCidade.setText(rs.getString(9));
                 txtClienteCep.setText(rs.getString(10));
             } else {
-                JOptionPane.showMessageDialog(null, "Usuário não encontrado");
+                JOptionPane.showMessageDialog(null, "Cliente não encontrado");
                 // Limpando os campos
                 txtClienteDNS.setText(null);
                 txtClienteNome.setText(null);
@@ -111,7 +111,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
                 pst.setString(1, txtClienteEmail.getText());
                 int apagado = pst.executeUpdate();
                 if (apagado > 0) {
-                    JOptionPane.showMessageDialog(null, "Usuário excluido com sucesso!");
+                    JOptionPane.showMessageDialog(null, "Cliente excluído com sucesso!");
                     // Limpando os campos
                     txtClienteDNS.setText(null);
                     txtClienteNome.setText(null);
@@ -183,12 +183,12 @@ public class TelaCliente extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(txtClienteCidade);
-        txtClienteCidade.setBounds(120, 320, 220, 30);
+        txtClienteCidade.setBounds(100, 320, 220, 30);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("E-mail");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(290, 280, 50, 30);
+        jLabel3.setBounds(270, 280, 50, 30);
 
         try {
             txtClienteCep.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
@@ -201,17 +201,17 @@ public class TelaCliente extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(txtClienteCep);
-        txtClienteCep.setBounds(460, 320, 100, 30);
+        txtClienteCep.setBounds(440, 320, 100, 30);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("Data Nasc.");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(360, 160, 80, 30);
+        jLabel4.setBounds(340, 160, 80, 30);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setText("Nome");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(50, 200, 50, 30);
+        jLabel5.setBounds(30, 200, 50, 30);
 
         txtClienteNome.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtClienteNome.addActionListener(new java.awt.event.ActionListener() {
@@ -220,12 +220,12 @@ public class TelaCliente extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(txtClienteNome);
-        txtClienteNome.setBounds(120, 200, 440, 30);
+        txtClienteNome.setBounds(100, 200, 440, 30);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setText("CPF");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(50, 160, 30, 30);
+        jLabel6.setBounds(30, 160, 30, 30);
 
         try {
             txtClienteTel.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)  ##### - ####")));
@@ -238,12 +238,12 @@ public class TelaCliente extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(txtClienteTel);
-        txtClienteTel.setBounds(120, 280, 150, 30);
+        txtClienteTel.setBounds(100, 280, 150, 30);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setText("CEP");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(410, 320, 30, 30);
+        jLabel7.setBounds(390, 320, 30, 30);
 
         txtClienteEmail.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtClienteEmail.addActionListener(new java.awt.event.ActionListener() {
@@ -252,12 +252,12 @@ public class TelaCliente extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(txtClienteEmail);
-        txtClienteEmail.setBounds(340, 280, 220, 30);
+        txtClienteEmail.setBounds(320, 280, 220, 30);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setText("Numero");
         getContentPane().add(jLabel9);
-        jLabel9.setBounds(400, 240, 56, 30);
+        jLabel9.setBounds(380, 240, 56, 30);
 
         txtClienteNumero.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtClienteNumero.addActionListener(new java.awt.event.ActionListener() {
@@ -266,12 +266,12 @@ public class TelaCliente extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(txtClienteNumero);
-        txtClienteNumero.setBounds(460, 240, 100, 30);
+        txtClienteNumero.setBounds(440, 240, 100, 30);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel10.setText("Cidade");
         getContentPane().add(jLabel10);
-        jLabel10.setBounds(50, 320, 50, 30);
+        jLabel10.setBounds(30, 320, 50, 30);
 
         try {
             txtClienteDNS.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
@@ -284,12 +284,12 @@ public class TelaCliente extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(txtClienteDNS);
-        txtClienteDNS.setBounds(440, 160, 120, 30);
+        txtClienteDNS.setBounds(420, 160, 120, 30);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setText("Telefone");
         getContentPane().add(jLabel11);
-        jLabel11.setBounds(50, 280, 59, 30);
+        jLabel11.setBounds(30, 280, 59, 30);
 
         try {
             txtClienteCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
@@ -302,12 +302,12 @@ public class TelaCliente extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(txtClienteCPF);
-        txtClienteCPF.setBounds(180, 160, 140, 30);
+        txtClienteCPF.setBounds(160, 160, 140, 30);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel13.setText("Endereço");
         getContentPane().add(jLabel13);
-        jLabel13.setBounds(50, 240, 70, 30);
+        jLabel13.setBounds(30, 240, 70, 30);
 
         txtClienteEndereco.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtClienteEndereco.addActionListener(new java.awt.event.ActionListener() {
@@ -316,7 +316,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(txtClienteEndereco);
-        txtClienteEndereco.setBounds(120, 240, 230, 30);
+        txtClienteEndereco.setBounds(100, 240, 230, 30);
 
         btnAdicionarCli.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnAdicionarCli.setForeground(new java.awt.Color(0, 102, 255));
@@ -333,7 +333,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnAdicionarCli);
-        btnAdicionarCli.setBounds(210, 390, 100, 30);
+        btnAdicionarCli.setBounds(190, 390, 100, 30);
 
         btnConsultarCli.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnConsultarCli.setForeground(new java.awt.Color(0, 102, 255));
@@ -349,7 +349,7 @@ public class TelaCliente extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnConsultarCli);
-        btnConsultarCli.setBounds(120, 160, 50, 30);
+        btnConsultarCli.setBounds(100, 160, 50, 30);
 
         btnExcluirCli.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnExcluirCli.setForeground(new java.awt.Color(0, 102, 255));
@@ -366,11 +366,11 @@ public class TelaCliente extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnExcluirCli);
-        btnExcluirCli.setBounds(330, 390, 100, 30);
+        btnExcluirCli.setBounds(310, 390, 100, 30);
 
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/destakcar/icones/icone-cliente.png"))); // NOI18N
         getContentPane().add(jLabel14);
-        jLabel14.setBounds(190, 0, 220, 140);
+        jLabel14.setBounds(170, 0, 220, 140);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

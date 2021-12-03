@@ -14,6 +14,5 @@ public class jOptionPane {
 
     static void showMessageDialog(Object object, SQLException e) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
+    }    
 }
